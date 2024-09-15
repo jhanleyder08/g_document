@@ -68,3 +68,69 @@ function ActualizarUser(datos){
 			}
 		);
 }
+
+$('#agregarUser').click(function(event) {
+	$('#CrearNuevoUser').removeClass('hidden');
+	$('#EditarUser').addClass('hidden');
+});
+
+$('#CancelarCrearUser').click(function(event) {
+	$('#CrearNuevoUser').addClass('hidden');
+});
+
+$('#CrearNuevoUser').submit(function (event) {
+	if (!($('#user').val() == '' || $('#pass').val() == '')) {
+		var alerta = '';
+		var datos = {
+			username : $('#user').val(),
+			clave    : $('#pass').val(),
+			estado   : $('#estado').val(),
+			rol      : $('#rol').val()
+		};
+		$.post('../../ApiREST/UsuariosCtrl/Registrar', 
+			{datos: datos}, 
+			function(data) {
+				if(data.estado == 1){
+					alerta  = '<div class="alert alert-success alert-dismissible" role="alert">';
+					alerta += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+					alerta += data.mensaje+'</div>';
+					$('#CrearNuevoUser').addClass('hidden');
+					listarUsers();
+				}else{
+					alerta  = '<div class="alert alert-danger alert-dismissible" role="alert">';
+					alerta += '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+					alerta += data.mensaje+'</div>';
+				}
+
+				$('#alertas_usuarios').html(alerta);
+			}
+		);
+		
+		return false;
+	}
+});
+
+function EditarUser(index) {
+	$('#EditarUser').removeClass('hidden');
+	$('#CrearNuevoUser').addClass('hidden');
+
+	$('#edituser').val(Usuarios[index].lis_usuario);
+	$('#Editpass').val(Usuarios[index].lis_clave);
+	$('#Editrol').val(Usuarios[index].lis_rol);
+	$('#Editestado').val(Usuarios[index].lis_estado);
+}
+
+$('#EditarUser').submit(function (event) {
+	if(!($('#edituser').val() == '' || $('#editpass').val() == '' )){
+		datos = {
+			username : $('#edituser').val(),
+			clave    : $('#editpass').val(),
+			estado   : $('#editestado').val(),
+			rol      : $('#editrol').val()
+		}
+		ActualizarUser(datos);
+
+		$('#EditarUser').addClass('hidden');
+		return false;
+	}
+});
