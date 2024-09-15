@@ -1,0 +1,150 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Archiveycloud</a>
+        </div>
+        
+        <p class="navbar-text pull-right">
+            Conectado <a class="navbar-link"></a>
+        </p>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a id="ControlPanelUser" href="#usuarios" class="inf">Usuarios</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Opciones <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li> <a id="ControlPanelBarrio" href="#barrios" class="inf">Barrios</a></li>
+                        <li> <a id="ControlPanelCiudad" href="#ciudades" class="inf">Ciudades</a></li>
+                    </ul>
+                </li>
+
+                <li><a id="CerrarSesion">Salir</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="n_img" class="container">
+    <img src="img/fondo.jpg" class="img-responsive" alt="Cinque Terre">
+</div>
+
+
+<!-- -------------------------------------------------- USUARIOS ---------------------------------------------------- -->
+
+<div id="usuarios" class="container center-block oculto">
+    <div id="alertas_usuarios"> </div>
+
+    <h1 class="blue center title">Gestion y Control de Usuarios</h1>
+    <button class="btn btn-primary agregar" id="agregarUser">Nuevo Usuario <span
+            class="glyphicon glyphicon-plus"></span></button>
+
+    <div class="container">
+
+        <form class="form-horizontal hidden" id="EditarUser">  <!-- Editar el registro de usuarios-->
+            <div class="form-group">
+                <label for="edituser" class="col-sm-offset-3 col-sm-2 control-label">Usuario:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="edituser" placeholder="Usuario" required disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="editpass" class="col-sm-offset-3 col-sm-2 control-label">Contraseña:</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="editpass" placeholder="Contrseña" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editrol" class="col-sm-offset-3 col-sm-2 control-label">Rol:</label>
+                <div class="col-sm-4">
+                    <select id="editrol" class="form-control">
+                        <option value="2">Administrador</option>
+                        <option value="1">Super Adiministrador</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="editestado" class="col-sm-offset-3 col-sm-2 control-label">Estado:</label>
+                <div class="col-sm-4">
+                    <select id="editestado" class="form-control">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" id="CancelarActualizarUser">Cancelar</button>
+                <button type="submit" class="btn btn-success">Actualizar</button>
+            </div>
+        </form>
+
+        <form class="form-horizontal hidden" id="CrearNuevoUser"> <!-- Crear el registro de usuarios-->
+            <div class="form-group">
+                <label for="user" class="col-sm-offset-3 col-sm-2 control-label">Usuario:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="user" placeholder="Usuario" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pass" class="col-sm-offset-3 col-sm-2 control-label">Contraseña:</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="pass" placeholder="Contrseña" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rol" class="col-sm-offset-3 col-sm-2 control-label">Rol:</label>
+                <div class="col-sm-4">
+                    <select id="rol" class="form-control">
+                        <option value="2">Administrador</option>
+                        <option value="1">Super Adiministrador</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="estado" class="col-sm-offset-3 col-sm-2 control-label">Estado:</label>
+                <div class="col-sm-4">
+                    <select id="estado" class="form-control">
+                        <option value="1">Activo</option>
+                        <option value="2">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-default" id="CancelarCrearUser">Cancelar</button>
+                <button type="submit" class="btn btn-success">Crear</button>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive">
+        <table id="usuarios_table" class="table table-hover">
+            <thead>
+                <tr class="blue">
+                    <td>Usuario</td>
+                    <td>Rol</td>
+                    <td>Estado</td>
+                    <td>Editar</td>
+                </tr>
+            </thead>
+            <tbody id="users">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<script src="js/PaneldeControl.js"></script>
+<script src="js/PaneldeControlUsers.js"></script>
