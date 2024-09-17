@@ -17,8 +17,8 @@ git config --global --remove-section user.email="correo"
 
 git init
 git add . 
-git commit -m 'Inicio del repositorio de JHAN_DUARTE'
-git remote add origin https://token_personal@github.com/jhanleyder08/JHAN_DUARTE.git
+git commit -m 'Inicio del repositorio de g_document'
+git remote add origin https://token_personal@github.com/jhanleyder08/g_document.git
 
 
 // Recordemos que el nombre master es el branch como se guarda en git.
@@ -27,7 +27,7 @@ git push -u origin main
 
 
 // Para clonar el repositorio solo se realiza una vez
-git clone https://github.com/jhanleyder08/JHAN_DUARTE.git
+git clone https://github.com/jhanleyder08/g_document.git
 
 
 // Para actualizar 
