@@ -1,0 +1,34 @@
+// listar credenciales globales
+
+git config --global --list
+
+// configuración de credenciales
+git config --global user.name "usuario"
+git config --global user.password "clave"
+git config --global user.email "correo"
+
+
+// remover configuración de credenciales
+git config --global --remove-section user.name="usuario"
+git config --global --remove-section user.password="clave"
+git config --global --remove-section user.email="correo"
+
+// sincronizar el repositorio en github
+
+git init
+git add . 
+git commit -m 'Inicio del repositorio de JHAN_DUARTE'
+git remote add origin https://token_personal@github.com/jhanleyder08/JHAN_DUARTE.git
+
+
+// Recordemos que el nombre master es el branch como se guarda en git.
+git pull --rebase origin master
+git push -u origin master  
+
+
+// Para clonar el repositorio solo se realiza una vez
+git clone https://github.com/jhanleyder08/JHAN_DUARTE.git
+
+
+// Para actualizar 
+git pull origin master
